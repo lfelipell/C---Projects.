@@ -1,0 +1,32 @@
+/* areacirculo.cpp : Defines the entry point for the console application.
+/*************************************************************************/
+/* Materia : Introdccion a la programacion
+/* Nombre : Felipe Lacayo
+/* Fecha : 12/07/2013
+/* Descripcion : Calcular el area de un circulo
+/* Entrada : radio
+/* Salida : area
+/**************************************************************************/
+
+#include "stdafx.h"
+#include "stdio.h"
+#include "conio.h"
+
+
+void main()
+{float radio,area;
+ printf("\t Calculo del area del circulo \n");
+ printf("\t ============================= \n\n\n");
+ printf("Ingrese el radio: ");
+ scanf("%f",&radio);
+ if (radio>0)
+ {
+   // Calcula el area
+   area = 3.14*radio*radio;
+   printf("\n El area es %f",area);
+ }
+ else
+    printf("\n\n ----No se permiten numeros menores a 0----");
+ 
+getch();
+}

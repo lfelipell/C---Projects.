@@ -1,0 +1,22 @@
+#include "stdafx.h"
+#include "stdio.h"
+#include "conio.h"
+#include "stdlib.h"
+
+void main()
+{
+  float d,t,v;
+	printf("\t Calculo de la velocidad \n");
+    printf("\t ======================= \n\n\n");
+	printf("Ingrese Distancia: ");
+	scanf("%f",&d);
+	printf("Ingrese tiempo: ");
+	scanf("%f",&t);
+	if (d>0 && t>0)
+	   {v=d/t;
+	    printf("La velocidad es: %f",v);
+	}
+	else
+		printf("\n ERROR ");
+	getch();
+}

@@ -1,0 +1,17 @@
+#include "stdafx.h"
+#include "conio.h"
+#include "stdio.h"
+#include "stdlib.h"
+
+void main()
+{float a,b,c,d,e,promedio;
+printf("Ingrese numeros: ");
+scanf("%f",&a);
+scanf("%f",&b);
+scanf("%f",&c);
+scanf("%f",&d);
+scanf("%f",&e);
+promedio=(a+b+c+d+e)/5;
+printf("\n El promedio es: %f",promedio);
+getch();
+}

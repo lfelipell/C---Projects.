@@ -5,13 +5,15 @@
 
 void main()
 {int n,fac,i;
-printf("INGRESE NUMERO: ");
-scanf("%d",&n);
-fac=1;
-if (n>0)
+ printf("CALCULO DEL FACTORIAL DE UN NUMERO");
+ printf("\n =================================");
+ printf("INGRESE NUMERO: ");
+ scanf("%d",&n);
+ fac=1;
+ if (n>0)
   for (i=1;i<=n;i++)
    fac=fac*i;
-else
+ else
    printf("\n ERROOOOOOOORRR");
   printf("\n el factorial es: %d",fac);
 

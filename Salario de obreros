@@ -1,0 +1,37 @@
+#include "stdafx.h"
+#include "conio.h"
+#include "stdio.h"
+
+void main(void)
+{int N, suma1, suma2, i, horas, salario, salario_total,hex;
+ printf("\tCalcular el salario semanal de N obreros\n");
+ printf("\t==========================================\n");
+ printf("Ingrese numero de obreros:");
+ scanf_s("%d", & N);
+ suma1 = 0;//Contador de salario segun categoria 1//
+ suma2 = 0;//Contador de salario segun categoria 2//
+ for(i=0; i<N; i++)
+ {printf("Ingrese cantidad de horas:");
+  scanf_s("%d", & horas);
+  if(horas<=40)//horas normales//
+  {
+    salario = horas*20;
+suma1 = suma1 + salario;
+  }
+  else//horas extras//
+  {
+hex = horas - 40;
+salario = (hex*25)+800;
+suma2 = suma2 + salario;
+    
+
+  }
+  printf("\nEl salario es:%d",salario);
+
+ }
+ salario_total = suma1 + suma2;
+ printf("\nEl salario total es:%d",salario_total);
+ _getch();
+
+
+}

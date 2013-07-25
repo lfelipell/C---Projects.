@@ -1,0 +1,43 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <conio.h>
+
+void main()
+{int N,i;
+ float peso,altura,huevos,calidad,calidadtotal,promedioc,precio;
+ printf("\t***PRECIO POR CALIDAD DE HUEVOS***");
+ printf("\n\nIngrese el numero de gallinas: ");
+ scanf("%d",&N);
+ calidadtotal=0;
+ for(i=1;i<=N;i++)
+    {do 
+ {printf("\n\nIngrese el peso (kg) de la galllina %d: ",i);
+       scanf("%f",&peso);
+     printf("\nIngrese el altura (cm) de la galllina %d: ",i);
+       scanf("%f",&altura);
+     printf("\nIngrese el numero de huevos de la galllina %d: ",i);
+       scanf("%f",&huevos);
+	  }while(peso<=0 || altura<=0 || huevos<=0);
+		  calidad=(peso*altura)/huevos;
+	      calidadtotal=calidadtotal+calidad;
+     }
+	promedioc=calidadtotal/N;
+	if(promedioc>=15)
+	{precio=promedioc*1.2;
+	printf("\n\n\t***EL PRECIO DE VENTA POR KILO DE HUEVOS ES %f",precio);
+	}
+	else
+	{  if(promedioc>8 || promedioc<15)
+	    {precio=promedioc;
+	     printf("\n\n\t***EL PRECIO DE VENTA POR KILO DE HUEVOS ES %f",precio); 
+	     }
+	   else
+	    {  if(promedioc<=8)
+	       {precio=promedioc*0.8;
+	        printf("\n\n\t***EL PRECIO DE VENTA POR KILO DE HUEVOS ES %f",precio);
+	        }
+	     }
+	}
+
+	getch();
+}

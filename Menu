@@ -1,0 +1,87 @@
+// vectores.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "stdio.h"
+#include "conio.h"
+#include "stdlib.h"
+
+
+
+float areatriangulo(int base,int altura);
+float areacuadrado(int lado);
+float areacirculo(int radio);
+
+
+void main()
+{
+  char opcion;
+	int flag=1;
+	int a,b; //Para lados de figuras geometricas
+    float area;
+	system("color 9F");
+    do
+	{
+		system("cls");
+		printf("\t Menu \n");
+		printf("1. Area del Triangulo\n");
+		printf("2. Area del Cuadrado\n");
+		printf("3. Area del Ciruculo\n");
+		printf("0. Salir\n\n");
+		printf("Opcion :");
+		scanf("%c",&opcion);
+		switch(opcion)
+		{
+		case '1':
+			printf("Ingrese la base: ");
+			scanf("%d",&b);
+			printf("Ingrese altura: ");
+			scanf("%d",&a);
+			area=areatriangulo(b,a);
+			printf("Area es: %f",area);
+			break;
+
+		case '2':
+			printf("Ingrese el lado: ");
+			scanf("%d",&a);
+			area=areacuadrado(a);
+			printf("Area es: %f",area);
+			break;
+
+		case '3':
+			printf("Ingrese el radio: ");
+			scanf("%d",&a);
+			area=areacirculo(a);
+			printf("Area es: %f",area);
+			break;
+
+		case '0':
+			flag=1;
+			break;
+		default:
+			printf("La opcion no es valida");
+            system("pause");
+		}
+	}
+     while(opcion!='0');
+	 getch();
+}
+
+//Declaracion de Funciones
+
+float areatriangulo(int base, int altura)
+{
+	float area=(base*altura)/2;
+	return(area);
+}
+float areacuadrado(int lado)
+{
+	float area=lado*lado;
+	return(area);
+}
+float areacirculo(int radio)
+{
+	float Pi=3.141516;
+	float area=Pi*radio*radio;
+	return(area);
+}

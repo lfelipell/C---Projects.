@@ -5,6 +5,8 @@
 
 void main()
 {
+  printf("\t\tMAYOR VALOR DE UN VECTOR\n");
+  printf("\t\t========================\n\n");
   int i,aux,j,vec[nMax];
   //Cargar el vector de valores iniciales
 	for(i=0;i<10;i++)

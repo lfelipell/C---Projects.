@@ -1,0 +1,30 @@
+#include "stdafx.h"
+#include "stdio.h"
+#include "conio.h"
+#define nMax 10
+
+void main()
+{
+  int i,aux,j,vec[nMax];
+  //Cargar el vector de valores iniciales
+	for(i=0;i<10;i++)
+	{
+		printf("Vec [ %d ]= ",i);
+		scanf("%d",&vec[i]);
+	}
+	//Clasificar el vector con burbuja
+	for(i=0;i<9;i++)
+		for(j=i+1;j<10;j++)
+			if (vec[i] > vec[j])
+			{aux=vec[j];
+	            vec[j]=vec[i];
+				vec[i]=aux;
+			}
+		//Mostrar el vector
+
+		
+	printf("\nVec[ %d ]= %d",vec[i]);
+	
+		
+		getch();
+}

@@ -6,9 +6,9 @@
 
 void main()
 {
-  system("color 3F");
+        system("color 3F");
 	printf("\t\tCALCULO DEL PROMEDIO DE N VECTORES\n");
-    printf("\t\t==================================\n\n");
+        printf("\t\t==================================\n\n");
 	int n,vec[nMax],i,s;
 	float aux;
 	printf("ingrese cantidad de vectores: ");
@@ -18,7 +18,7 @@ void main()
 	{
 		printf("Vec [ %d ]= ",i);
 		scanf("%d",&vec[i]);
-	    s=s+vec[i];
+	        s=s+vec[i];
 	}
 
 	aux=s/n;

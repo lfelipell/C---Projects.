@@ -1,0 +1,27 @@
+#include "stdafx.h"
+#include "stdio.h"
+#include "conio.h"
+#include "stdlib.h"
+#define nMax 100
+
+void main()
+{
+  system("color 3F");
+	printf("\t\tCALCULO DEL PROMEDIO DE N VECTORES\n");
+    printf("\t\t==================================\n\n");
+	int n,vec[nMax],i,s;
+	float aux;
+	printf("ingrese cantidad de vectores: ");
+	scanf("%d",&n);
+	s=0;
+	for(i=1;i<=n;i++)
+	{
+		printf("Vec [ %d ]= ",i);
+		scanf("%d",&vec[i]);
+	    s=s+vec[i];
+	}
+
+	aux=s/n;
+	printf("\nEl Promedio de %d vectores es: %f",n,aux);
+	getch();
+}

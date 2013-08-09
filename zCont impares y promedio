@@ -4,7 +4,8 @@
 using namespace std;
 
 int main(){
-  int n,nro,i,cont=0;
+	int n,nro,i,cont=0,suma=0;
+
 	cout << "introduzca cantidad de numeros : ";
 	cin >> n;
     for(i=0;i<n;i++)
@@ -12,15 +13,18 @@ int main(){
 		cout << "introducir numero: ";
 		cin >> nro;
 		if(nro % 2!= 0){
-			cont++;}
+			suma=suma+nro;
+			cont++;
+	
+		}
 	}
 
 	
 	
     cout << "\nLos numeros impares igresados son: "<< cont;
+	cout << "\nEl promedio es: "<< suma/cont;
 
 	
 	getch();
 	return(0);
 }
-

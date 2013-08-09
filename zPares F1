@@ -1,0 +1,18 @@
+#include "stdafx.h"
+#include "iostream"
+#include "conio.h"
+using namespace std;
+
+int main(){
+  int n,suma=0,i;
+	cout << "introduzca cantidad de numeros pares: ";
+	cin >> n;
+	for(i=0;i<n;i++)
+	{suma=suma+2;
+	
+	
+    cout << "\nLos numeros son: "<< suma;
+	}
+	getch();
+	return(0);
+}

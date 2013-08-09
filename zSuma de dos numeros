@@ -1,0 +1,27 @@
+#include "stdafx.h"
+#include "iostream"
+#include "conio.h"
+using namespace std;
+
+int main(){
+  int a,b;
+	cout << "introduzca numero: ";
+	cin >> a;
+	cout << "introduzca numero: ";
+	cin >> b;
+	if(a>b)
+	{cout << "El mayor es: " << a;}
+
+	else
+	  {if(b>a)
+	    cout << "El mayor es: " << b;
+	  else 
+		  cout << "Los numeros son iguales";
+	  }
+
+	getch();
+	return(0);
+}
+
+
+

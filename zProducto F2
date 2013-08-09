@@ -1,0 +1,23 @@
+#include "stdafx.h"
+#include "iostream"
+#include "conio.h"
+using namespace std;
+
+int main(){
+  int a,b,i,c,s;
+	cout << "introduzca numero: ";
+	cin >> a;
+	cout << "introduzca numero: ";
+	cin >> b;
+	c=0;
+	s=0;
+	while(c<b)
+	  {s=s+a;
+	   c++;
+	}
+	cout << "la mult es: " <<s;
+	getch();
+	return(0);
+}
+
+

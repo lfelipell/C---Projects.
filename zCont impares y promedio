@@ -19,12 +19,22 @@ int main(){
 		}
 	}
 
+	cout << "\nLos numeros impares igresados son: "<< cont;
+
+	if(cont!=0)
 	
-	
-    cout << "\nLos numeros impares igresados son: "<< cont;
+    
 	cout << "\nEl promedio es: "<< suma/cont;
+
+	else
+		cout << "\nNO ingreso numeros impares..";
+
 
 	
 	getch();
 	return(0);
 }
+
+
+
+

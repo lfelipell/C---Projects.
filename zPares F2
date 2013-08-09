@@ -1,0 +1,19 @@
+#include "stdafx.h"
+#include "iostream"
+#include "conio.h"
+using namespace std;
+
+int main(){
+  int n,np=0;
+	cout << "introduzca cantidad de numeros pares: ";
+	cin >> n;
+	while(n>0)
+	{np=np+2;
+	
+	
+    cout << "\nLos numeros son: "<< np;
+	n--;
+	}
+	getch();
+	return(0);
+}

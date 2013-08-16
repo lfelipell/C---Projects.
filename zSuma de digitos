@@ -37,3 +37,28 @@ int main()
 	getch();
 	return(1);
 }
+
+
+
+
+
+
+
+
+PARA QUE SEA IMPAR
+
+int SumarDigitosimpar(int nro)
+{
+	int dig,s=0;
+	while(nro>0)
+	{
+		dig=nro%10;
+		if(dig%2 !=0)
+		{
+		s=s+dig;
+		}
+		nro=nro/10;
+	}
+    return(s);
+}
+

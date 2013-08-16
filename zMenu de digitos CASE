@@ -40,6 +40,54 @@ int SumarDigitosimpar(int nro)
     return(s);
 }
 
+int invertir(int nro)
+{
+	int dig,n=0;
+	while(nro>0)
+	{
+		dig=nro%10;
+		n=n*10+dig;
+		nro=nro/10;
+	}
+    return(n);
+}
+
+bool verifascendente(int nro)
+{
+
+	int digAnt = 9,digAct;
+	bool bandera = true;
+	while(nro>0){
+		digAct=nro%10;
+		if(digAct<=digAnt){
+			digAnt=digAct;
+		}else{
+			bandera=false;
+		}
+		nro=nro/10;
+	}
+
+
+  return(bandera);
+}
+
+int eliminarimpar(int nro)
+{
+	int dig,n=0;
+	while(nro>0)
+	{
+		dig=nro%10;
+		if(dig%2 == 0){
+
+
+		n=n*10+dig;
+		}
+
+		nro=nro/10;
+	}
+    return(invertir(n));
+}
+
 int main(){
 	int a,r,opcion;
 	cout << "introducir numero natural: ";
@@ -48,6 +96,10 @@ int main(){
 		cout << endl << "1.- Cantidad de digitos";
 		cout << endl << "2.- Sumar todos los digitos";
 		cout << endl << "3.- Sumar todos los digitos impares";
+		cout << endl << "4.- Mostrar numero invertido";
+		cout << endl << "5.- Verificar si digitos estan ordenados ascendentemente";
+		cout << endl << "6.- Ingrese nuevo numero";
+		cout << endl << "7.- Eliminar digitos impares";
 		cout << endl << "0.- Salir";
 		cout << endl << "Seleccionar opcion: ";
 		cin >> opcion;
@@ -61,6 +113,22 @@ int main(){
 			case 3 : r=SumarDigitosimpar(a);
 				cout << "\nLa suma de los digitos impares son: " << r;
 				break;
+			case 4 : r=invertir(a);
+				cout << "\nEl numero invertido es: " << r;
+				break;
+			case 5 : if(verifascendente(a)==true){
+				       cout << "\nEl numero tiene digitos ordenados ascendenteente";
+					 }else{
+						 cout << "\nEl numero NOO tiene digitos ordenados ascendenteente";
+					 }
+				break;
+			case 6 : cout << "Introducir otro numero natural : ";
+				     cin >> a;
+				break;
+			case 7 : cout << "\n El numero sin dig impares es : " << eliminarimpar(a) ;
+				    
+				break;
+
 		}
 
 	}while(opcion !=0);	

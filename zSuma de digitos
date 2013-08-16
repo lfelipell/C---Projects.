@@ -1,0 +1,39 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+int obtCantidadDigitos(int nro)
+{
+	int c=0;
+	while(nro>0)
+	{
+		nro=nro/10;
+		c++;
+	}
+    return(c);
+}
+
+int SumarDigitos(int nro)
+{
+	int dig,s=0;
+	while(nro>0)
+	{
+		dig=nro%10;
+		s=s+dig;
+		nro=nro/10;
+	}
+    return(s);
+}
+
+int main()
+{
+
+	int a,r;
+	cout << "introducir numero natural: ";
+	cin >> a;
+	r=SumarDigitos(a);
+	cout << "La suma de digitos es: " << r;
+	getch();
+	return(1);
+}

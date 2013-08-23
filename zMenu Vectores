@@ -1,0 +1,82 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+void cargar(int vec[],int n){
+	int i;
+	for(i=0;i<n;i++){
+		cout << "introducir Elemento V["<<i+1<<"] : ";
+		cin >> vec[i];
+	}
+}
+
+void mostrar(int vec[],int n){
+	int i;
+	cout << "\nEl vector es : ";
+	for(i=0;i<n;i++){
+		cout << endl << "V["<<i+1<<"] : "<< vec[i];
+	}
+}
+
+void eliminarimpar(int vec[],int &n){
+	int i,k;
+	for(i=0;i<n;i++){
+		if(vec[i]%2 != 0){
+			for(k=i;k<n-1;k++){
+				vec[k] = vec [k+1];
+			}
+			n--;
+			i--;
+		}
+	}
+}
+
+void eliminarDigMay(int vec[],int &n){
+	int i,mayor=vec[0],k;
+	for(i=0;i<n;i++){
+		if (mayor<vec[i]){
+			mayor=vec[i];
+		}
+	}
+	for(i=0;i<n;i++){
+		if(vec[i]==mayor){
+			for(k=i;k<n-1;k++){
+				vec[k]=vec[k+1];
+			}
+			n--;
+			i--;
+		}
+	}
+}
+
+
+
+int main(){
+	int nroElem,opcion,vector[30],nb;
+	cout << "introducir Tamaño del vector: ";
+	cin >> nroElem;
+	do{
+		cout << endl << "\n\n*** M E N U    VECTORES***";
+		cout << endl << "1.- Cargar";
+		cout << endl << "2.- Mostrar";
+		cout << endl << "3.- Eliminar impares";
+		cout << endl << "4.- Eliminar digito mayor";
+		cout << endl << "0.- Salir";
+		cout << endl << "Seleccione Opcion : ";
+		cin >> opcion;
+		switch(opcion){
+			case 1 : cargar(vector,nroElem);
+				     break;
+			case 2 : mostrar(vector,nroElem);
+				     break;
+			case 3 : eliminarimpar(vector,nroElem);
+				     break;
+		    case 4 : eliminarDigMay(vector,nroElem);
+				     break;
+		}
+	}while(opcion != 0);
+	return(0);
+}
+
+

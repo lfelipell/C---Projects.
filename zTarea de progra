@@ -1,0 +1,76 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "math.h"
+using namespace std;
+
+void cargar(int coef[],int expo[], int n){
+	int i;
+	for(i=0;i<n;i++){
+		cout <<"\n\nIntroducir termino: "<<i+1<<"-->: \n";
+		cout <<"\tCoeficiente ? : ";
+		cin >> coef[i];
+		cout <<"\tExponente ? : ";
+		cin >> expo[i];
+
+	}
+}
+
+void mostrar(int coef[],int expo[], int n){
+	int i;
+	for(i=0;i<n;i++){
+		if(i!=0){
+			if(coef[i]>0)
+				cout <<" + ";
+			else
+				cout <<"  ";
+		}
+		cout << coef[i];
+		if(expo[i] > 0)
+		     cout<<"x^"<<expo[i];
+	}
+	cout << endl;
+}
+
+
+void sumarPolis(int coef[],int expo[],int n,
+				int coef2[],int expo2[],int n2,
+				int coef3[],int expo3[],int &n3){
+	int i,j,k;
+	n3=n3+n;
+	for(i=0;i<n;i++){
+		for(j=0;j<n;j++){
+			coef3[j]=coef[i];
+			expo3[j]=expo[i];
+		}
+	}
+	for(k=0;k<n;k++){
+		if(expo2==expo3){
+			coef3[i]
+
+
+
+
+}
+
+
+
+
+int main(){
+	int coef[20],int expo[20],int n,
+				int coef2[20],int expo2[20],int n2,
+				int coef3[20],int expo3[20],int n3=0;
+	cout <<"\nNumero de terminos del primer polinomio: ";
+	cin >> n1;
+	cargar(coef,expo,n1);
+	cout <<"\nNumero de terminos del segundo polinomio: ";
+	cin >> n2;
+	cargar(coef2,expo2,n2);
+	sumarPolis(coef,expo,n1,coef2,expo2,n2,coef3,expo3,n3);
+
+	mostrar(coef,expo,n1);
+	mostrar(coef2,expo2,n2);
+
+	getch();
+	return(5478);
+}

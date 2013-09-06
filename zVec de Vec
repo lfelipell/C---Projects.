@@ -1,0 +1,87 @@
+#include "stdafx.h"
+#include <iostream>
+#include <conio.h>
+#include <string.h>
+using namespace std;
+
+struct regAlumno{
+	char nomAlum[20];
+	char sexo;
+	int nota;
+};
+
+struct regCurso{
+	char nomCurso[20];
+	int nroAlum;
+	regAlumno listaAlum[20];
+};
+
+struct regCiclo{
+	char nomCiclo[20];
+	int nroCurso;
+	regCurso listaCursos[10];
+};
+
+void cargar(regCiclo cole[], int nroCiclos){
+	int i,j,k;
+	for(i=0;i<nroCiclos;i++){
+		cout <<"\n\nNombre Ciclo? : ";
+		do{
+			gets(cole[i].nomCiclo);
+		}while(strlen(cole[i].nomCiclo) == 0);
+		cout <<"Nro de cursos ? : ";
+		cin >> cole[i].nroCurso;
+		for(j=0;j<cole[i].nroCurso;j++){
+			cout <<"\n\tNombre Curso? : ";
+			do{
+				gets(cole[i].listaCursos[j].nomCurso);
+			}while(strlen(cole[i].listaCursos[j].nomCurso) == 0);
+			cout <<"Nro de Alumnos ? : ";
+			cin >> cole[i].listaCursos[j].nroAlum;
+			for(k=0;k<cole[i].listaCursos[j].nroAlum;k++){
+				cout <<"\t\tNombre Alumno ? : ";
+				do{
+					gets(cole[i].listaCursos[j].listaAlum[k].nomAlum);
+				}while(strlen(cole[i].listaCursos[j].listaAlum[k].nomAlum) == 0);
+				cout <<"\t\tSexo <F/M> ? : ";
+				cin >> cole[i].listaCursos[j].listaAlum[k].sexo;
+				cout <<"\t\tNota ? : ";
+				cin >> cole[i].listaCursos[j].listaAlum[k].nota;
+			}
+		}
+	}
+}
+
+
+void mostrar(regCiclo cole[], int nroCiclos){
+	int i,j,k;
+	for(i=0;i<nroCiclos;i++){
+		cout <<"\n\nNombre Ciclo : "<<cole[i].nomCiclo;
+		cout <<"\n\nNro de cursos : "<<cole[i].nroCurso;
+		for(j=0;j<cole[i].nroCurso;j++){
+			cout <<"\n\tNombre Curso : "<<cole[i].listaCursos[j].nomCurso;
+			cout <<"\n\tNro de Alumnos : "<<cole[i].listaCursos[j].nroAlum;
+			for(k=0;k<cole[i].listaCursos[j].nroAlum;k++){
+				cout <<"\t\t\tNombre Alumno  : "
+					<<cole[i].listaCursos[j].listaAlum[k].nomAlum;
+				cout <<"\t\tSexo <F/M> ? : "
+				<< cole[i].listaCursos[j].listaAlum[k].sexo;
+				cout <<"\t\tNota  : "
+			<< cole[i].listaCursos[j].listaAlum[k].nota;
+			}
+		}
+	}
+}
+
+
+
+int main(){
+	regCiclo colegio[5];
+	int nroCiclos;
+	cout <<"Cuantos ciclos tiene el colegio? : ";
+	cin >> nroCiclos;
+	cargar(colegio,nroCiclos);
+	mostrar(colegio,nroCiclos);
+	getch();
+	return(5467);
+}

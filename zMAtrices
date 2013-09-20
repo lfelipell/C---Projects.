@@ -1,0 +1,110 @@
+#include "stdafx.h"
+#include "stdio.h"
+#include "conio.h"
+#include "iostream"
+using namespace std;
+
+
+#define N 20
+#define M 20
+
+
+void cargar(int Mat[N][M],int n,int m){
+	int i,j;
+	for(i=0;i<n;i++){
+		for(j=0;j<n;j++){
+			cout<<"Ingrese elementos["<<i<<","<<j<<"]";
+			cin>> Mat[i][j];
+		}
+	}
+}
+
+void mostrar(int Mat[N][M],int n,int m){
+	int i,j;
+	cout<< "\n\nLa matriz es ---->> : \n";
+	for(i=0;i<n;i++){
+		for(j=0;j<m;j++){
+			cout<<Mat[i][j] <<" ";
+		}
+		cout << endl;
+	}
+}
+
+void cargarNroAleatorios(int Mat[N][M],int n,int m){
+	int i,j;
+	for(i=0;i<n;i++){
+		for(j=0;j<m;j++){
+			Mat[i][j] = rand()%(50-1);
+		}
+	}
+}
+
+void swapFilxCol(int Mat[N][M],int n,int m){
+	int i,j,aux;
+	for(i=0;i<n;i++){
+		for(j=0;j<m;j++){
+			if(i<j){
+				aux      = Mat[i][j];
+				Mat[i][j]= Mat[j][i];
+				Mat[j][i]= aux;
+			}
+		}
+	}
+}
+
+
+void cargarEspiral(int Mat[N][M],int n){
+	int i,a,c;
+	c=1;
+	a=0;
+	for(a=0;a<n/2;a++){
+		for(i=a;i<n-a;i++){
+			Mat[a][i] = c++;
+		}
+		for(i=a+1;i<n-a;i++){
+			Mat[i][n-a-1]=c++;
+		}
+		for(i=n-a-2;i>=a;i--){
+			Mat[n-a-1][i]=c++;
+		}
+		for(i=n-a-2;i>a;i--){
+			Mat[i][a])=c++;
+		}
+	}
+	if(n%2!=0)
+		Mat[(n-1)/2][(n-1)/2]=c;
+}
+
+
+
+
+
+}
+
+void limpiar(int Mat[N][M],int n,int m){
+	int i,j;
+	for(i=0;i<n;i++){
+		for(j=0;j<m;j++){
+			Mat[i][j]= 0;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+int main(){
+	int matriz[N][M],n,m;
+	cout<<"introducir numero de filas ";
+	cin >>n;
+	m=n;
+	limpiar(matriz,n,m);
+    cargarEspiral(matriz,n);
+	mostrar(matriz,n,m);
+	getch();
+	return (8578978);
+}

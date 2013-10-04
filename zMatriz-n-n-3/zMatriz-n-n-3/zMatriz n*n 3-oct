@@ -1,0 +1,67 @@
+#include "conio.h"
+#include "iomanip"
+#include "iostream"
+using namespace std;
+
+#define N 8
+#define M 8
+
+struct matriz{
+	int mat[N][M];
+};
+
+void cargar(matriz abc[N][M],int n){
+	int i,j,k,l,par=2,impar=1;
+	for(i=0;i<n;i++){
+		for(j=0;j<n;j++){
+			for(k=0;k<n;k++){
+				for(l=0;l<n;l++){
+					if(j%2==0){
+						abc[i][j].mat[k][l]=par;
+						par=par+2;
+					}
+					else{
+						abc[i][j].mat[k][l]=impar;
+						impar=impar+2;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+void mostrar(matriz abc[N][M],int n){
+	int i,j,k,l;
+	for(i=0;i<n;i++){
+		for(j=0;j<n;j++){
+			for(k=0;k<n;k++){
+				for(l=0;l<n;l++){
+					cout<< setw(3) <<abc[i][k].mat[j][l]<<" ";
+				}
+				cout<<"  ";
+
+			}
+			cout<<endl;
+		}
+		cout<<endl;
+	}
+}
+
+
+int main(){
+	int n;
+	matriz abc[N][M];
+	cout<<"Ingrese n*n: ";
+	cin>>n;
+	cargar(abc,n);
+	mostrar(abc,n);
+	getch();
+	return(569);
+}

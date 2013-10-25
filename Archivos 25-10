@@ -1,0 +1,54 @@
+#include "conio.h"
+#include "stdio.h"
+#include "iostream"
+#include "string.h"
+using namespace std;
+
+struct regAmigo{
+	char nombre[30];
+	int edad;
+	char email[80];
+	char estado;
+};
+
+int main(){
+	FILE *ptr;
+	regAmigo reg;
+	int op;
+	char nombreArchivo[30],modo[5];
+	cout<<"Nombre del archivo: ";
+	do{
+		gets(nombreArchivo);
+	}while(strlen(nombreArchivo)==0);
+	strcat(nombreArchivo,".dat");
+	cout<< endl << "1.- Crear archivo";
+	cout<< endl << "2.- Adicionar registros al archivo";
+	cout<< endl << "Seleccionar opciom: ";
+	cin>>op;
+	if(op==1)
+		strcpy(modo,"wb");
+	else
+		strcpy(modo,"ab");
+
+
+	cout<<"Nombre: ";
+	do{
+		gets(reg.nombre);
+	}while(strlen(reg.nombre)==0);
+	cout<<"Edad: ";
+	cin>>reg.edad;
+	cout<<"Email :";
+	do{
+		gets(reg.email);
+	}while(strlen(reg.email)==0);
+	reg.estado='N';
+	ptr = fopen(nombreArchivo,modo);
+
+	fwrite(&reg,sizeof(reg),1,ptr);
+	
+
+	fclose(ptr);
+	
+	getch();
+	return(59861400012696556);
+}

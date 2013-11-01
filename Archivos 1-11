@@ -1,0 +1,137 @@
+#include "conio.h"
+#include "stdio.h"
+#include "iostream"
+#include "string.h"
+#include "iomanip"
+using namespace std;
+
+struct regAmigo{
+        char nombre[30];
+        int edad;
+        char email[80];
+        char estado;
+};
+
+/*int main(){
+        FILE *ptr;
+        regAmigo reg;
+        int op;
+        char nombreArchivo[30],modo[5];
+        cout<<"Nombre del archivo: ";
+        do{
+                gets(nombreArchivo);
+        }while(strlen(nombreArchivo)==0);
+        strcat(nombreArchivo,".dat");
+        cout<< endl << "1.- Crear archivo";
+        cout<< endl << "2.- Adicionar registros al archivo";
+        cout<< endl << "Seleccionar opciom: ";
+        cin>>op;
+        if(op==1)
+                strcpy(modo,"wb");
+        else
+                strcpy(modo,"ab");
+
+
+        cout<<"Nombre: ";
+        do{
+                gets(reg.nombre);
+        }while(strlen(reg.nombre)==0);
+        cout<<"Edad: ";
+        cin>>reg.edad;
+        cout<<"Email :";
+        do{
+                gets(reg.email);
+        }while(strlen(reg.email)==0);
+        reg.estado='N';
+        ptr = fopen(nombreArchivo,modo);
+
+        fwrite(&reg,sizeof(reg),1,ptr);
+        
+
+        fclose(ptr);
+        
+        getch();
+        return(59861400012696556);
+}
+*/
+
+/*int main(){
+        FILE *ptr;
+        regAmigo reg;
+		float a=0,c=0;
+		ptr = fopen("amigos.dat","rb");
+		if(ptr==NULL){
+			cout<<"Archivo No existee..! ";
+		}else{
+			cout<< left;
+			cout<<endl<<setw(60)<< "=====================================================";
+			cout<<endl<<setw(60)<< "           ** LISTADO DE AMIGOS **                   ";
+			cout<<endl<<setw(60)<< "=====================================================";
+			cout<<endl<<setw(60)<< "Nombre                      Edad    email            ";
+			cout<<endl<<setw(60)<< "-----------------------------------------------------";
+			fread(&reg,sizeof(reg),1,ptr);
+			while( !feof(ptr) ){
+				cout<<endl<<setw(30)<<reg.nombre <<setw(4)<< reg.edad <<setw(30)<<reg.email;
+				a=a+reg.edad;
+				c++;
+				fread(&reg,sizeof(reg),1,ptr);
+			}
+			fclose(ptr);
+			if(c>0){
+				cout<<endl<<setw(60)<<"-----------------------------------------------------";
+				cout<<endl<<setw(30)<<" El Promedio es: "<<a/c;
+			}
+			cout<<endl<<setw(60)<<"====================================================";
+		}
+		getch();
+		return(365656);
+}
+*/
+
+
+int main(){
+        FILE *ptr;
+        regAmigo reg;
+		float a=0,c=0;
+		int edMenor=200;
+		ptr = fopen("amigos.dat","rb");
+		if(ptr==NULL){
+			cout<<"Archivo No existee..! ";
+		}else{
+			cout<< left;
+			cout<<endl<<setw(60)<< "=====================================================";
+			cout<<endl<<setw(60)<< "           ** LISTADO DE AMIGOS **                   ";
+			cout<<endl<<setw(60)<< "=====================================================";
+			cout<<endl<<setw(60)<< "Nombre                      Edad    email            ";
+			cout<<endl<<setw(60)<< "-----------------------------------------------------";
+			fread(&reg,sizeof(reg),1,ptr);
+			while( !feof(ptr) ){
+				cout<<endl<<setw(30)<<reg.nombre <<setw(4)<< reg.edad <<setw(30)<<reg.email;
+				a=a+reg.edad;
+				c++;
+				if(reg.edad<edMenor){
+					edMenor=reg.edad;
+				}
+				fread(&reg,sizeof(reg),1,ptr);
+			}
+
+			if(c>0){
+				cout<<endl<<setw(60)<<"-----------------------------------------------------";
+				cout<<endl<<setw(30)<<"El Promedio es: "<<a/c;
+			}
+			cout<<endl<<setw(60)<<"-----------------------------------------------------";
+		    cout<<endl<<setw(30)<<"La edad Menor es: "<< edMenor;
+			rewind(ptr);
+			fread(&reg,sizeof(reg),1,ptr);
+			while( !feof(ptr) ){
+				if(reg.edad==edMenor)
+					cout<<endl<<setw(30)<<"Nombre es: "<<reg.nombre;
+				fread(&reg,sizeof(reg),1,ptr);
+			}
+
+			fclose(ptr);
+			cout<<endl<<setw(60)<<"====================================================";
+		}
+		getch();
+		return(365656);
+}

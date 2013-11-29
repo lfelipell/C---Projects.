@@ -1,0 +1,165 @@
+#include "conio.h"
+#include "stdio.h"
+#include "iostream"
+#include "iomanip"
+using namespace std;
+
+
+struct regEquipo{
+	int CodEquipo;
+	char Nombre[30];
+};
+
+struct regPartidos{
+	int CodPartido;
+	int CodEquipo1;
+	int CodEquipo2;
+	int GolEquipo1;
+	int GolEquipo2;
+};
+
+
+void AdicionarDatosEquipo(){
+	regEquipo reg;
+	FILE *ptr;
+	ptr=fopen("equipo.dat","ab");
+	fread(&reg,sizeof(reg),1,ptr);
+	if(ptr!=NULL){
+			cout<<"Introduzca el Codigo del Equipo: ";
+			cin>>reg.CodEquipo;
+			cout<<"Introduzca el Nombre del Equipo: ";
+			cin >> reg.Nombre;
+			fwrite(&reg,sizeof(reg),1,ptr);
+	
+		
+	}else
+		cout<<"EL ARCHIVO NO EXISTE..!!!";
+	fclose(ptr);
+}
+
+
+
+void AdicionarDatosPartidos(){
+	regPartidos reg;
+	FILE *ptr;
+	ptr=fopen("partidos.dat","ab");
+	fread(&reg,sizeof(reg),1,ptr);
+	if(ptr!=NULL){
+			cout<<"Introduzca el Codigo del Partido: ";
+			cin>>reg.CodPartido;
+			cout<<"Introduzca el Codigo del Equipo 1: ";
+			cin>>reg.CodEquipo1;
+			cout<<"Introduzca el Codigo del Equipo 2: ";
+			cin>>reg.CodEquipo2;
+			cout<<"Introduzca Gol del Equipo 1: ";
+			cin>>reg.GolEquipo1;
+			cout<<"Introduzca Gol del Equipo 2: ";
+			cin>>reg.GolEquipo2;
+			fwrite(&reg,sizeof(reg),1,ptr);
+
+	}else
+		cout<<"EL ARCHIVO NO EXISTE..!!!";
+	fclose(ptr);
+}
+
+
+void ReporteEquipo(){
+	regEquipo reg;
+	FILE *ptr;
+    ptr=fopen("equipo.dat","rb");
+	fread(&reg,sizeof(reg),1,ptr);
+	while(!feof(ptr)){
+	cout<<reg.CodEquipo<<" "<<reg.Nombre<<endl;
+	fread(&reg,sizeof(reg),1,ptr);
+	}
+
+	fclose(ptr);
+}
+
+void ReportePartidos(){
+	regPartidos reg;
+	FILE *ptr;
+    ptr=fopen("partidos.dat","rb");
+	fread(&reg,sizeof(reg),1,ptr);
+	while(!feof(ptr)){
+		cout<<reg.CodPartido<<" "<<reg.CodEquipo1<<" "<<reg.CodEquipo2<<" "<<reg.GolEquipo1<<" "<<reg.GolEquipo2<<endl;
+	fread(&reg,sizeof(reg),1,ptr);
+	}
+
+	fclose(ptr);
+}
+
+void ReporteTotal(){
+	char x[30],y[30];
+	regPartidos reg;
+	FILE *ptr;
+	ptr=fopen("partidos.dat","rb");
+	fread(&reg,sizeof(reg),1,ptr);
+	if(ptr!=NULL){
+		x=obtNomEquipo1(reg.CodEquipo1);
+		y=obtNomEquipo2(reg.CodEquipo2);
+		strcpy(x,reg.CodEquipo1);
+		strcpy(y,reg.CodEquipo2);
+		if(reg.GolEquipo1>reg.GolEquipo2){
+			cont1=cont1+3;
+			if(reg.GolEquipo1==reg.GolEquipo2)
+				cont1=cont+1;
+		}else
+			cont1=0;
+
+
+	}
+}
+
+
+
+void obtNomEquipo1(char x[]){
+	FILE *ptr;
+	ptr=fopen("equipo.dat","rb");
+
+
+	obtPunto( int codEquipo){
+		FILE *ptr;
+		regPartidos reg;
+		ptr = fopen("partidos.dat","rb");
+		fread(...)
+			while(...){
+				if(codEquipo == reg.CodEquipo1){
+					if(reg.GolEquipo1 > reg.GolEquipo2){
+						puntos=puntos+3;
+					}
+					if(reg.GolEquipo1 == reg.GolEquipo2){
+						puntos=puntos+1;
+					}
+
+					else
+					if(codEquipo == reg.CodEquipo2){
+					if(reg.GolEquipo2 > reg.GolEquipo1){
+						puntos=puntos+3;
+					}
+					if(reg.GolEquipo2 == reg.GolEquipo1){
+						puntos=puntos+1;
+					}
+					fread(..)
+					}}
+
+
+
+
+
+int main(){
+	regEquipo reg;
+	File
+	//AdicionarDatosEquipo();
+	//AdicionarDatosPartidos();
+	//ReporteEquipo();
+	//ReportePartidos();
+	getch();
+	return(1);
+}
+	
+
+
+
+
+

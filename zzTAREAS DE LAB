@@ -1,0 +1,54 @@
+#include "stdio.h"
+#include "conio.h"
+#include "iostream"
+using namespace std;
+
+
+
+int main(){
+	int n,aux,s=0;
+	cin>>n;
+	while(n>0){
+		aux=n%10;
+		s=(s*10)+aux;
+		n=n/10;
+	}
+	cout<<s;
+	getch();
+	return(45);
+}
+
+
+===========================================================
+
+
+#include "stdio.h"
+#include "conio.h"
+#include "iostream"
+using namespace std;
+
+
+
+int main(){
+	int n,aux,a,b=0,s=0;
+	cin>>n;
+	while(n>0){
+	     aux=n%10;
+		if(n%2==0){
+	
+		s=(s*10)+aux;
+		
+		}
+		n=n/10;
+	}
+	while(s>0){
+		a=s%10;
+		b=(b*10)+a;
+		s=s/10;
+	}
+
+	cout<<b;
+	getch();
+	return(45);
+}
+
